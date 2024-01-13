@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: resize-deployment
+  namespace: case
+  labels:
+    app: resize
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: resize
+  template:
+    metadata:
+      labels:
+        app: resize
+    spec:
+      containers:
+      - name: resize
+        image: tahabolukbasi/image_resize:v2
+        ports:
+        - containerPort: 4000
