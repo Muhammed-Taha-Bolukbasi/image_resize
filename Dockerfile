@@ -4,6 +4,7 @@ COPY . /app
 WORKDIR /app
 
 RUN apk --no-cache upgrade
+RUN apk upgrade libssl3 libcrypto3
 
 RUN pip install -r requirements.txt
 
